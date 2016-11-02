@@ -9,5 +9,9 @@
 	$name = strip_tags(htmlspecialchars($_POST['name']));
 	$email_address = strip_tags(htmlspecialchars($_POST['email']));
 	
+	$data = $name.','.$email_address.PHP_EOL;
+	$fp = fopen('registrations.txt', 'a');
+	fwrite($fp, $data);
+	
 	return true;			
 ?>
